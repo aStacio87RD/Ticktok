@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Promo Live TikTok — Herramientas legítimas</title>
+<style>
+  :root{font-family:system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial; color:#111}
+  body{margin:0;background:linear-gradient(180deg,#0f172a,#071020);min-height:100vh;color:#fff;display:flex;align-items:center;justify-content:center;padding:28px}
+  .container{max-width:1000px;width:100%;background:rgba(255,255,255,0.03);border-radius:14px;padding:22px;box-shadow:0 10px 30px rgba(2,6,23,0.6)}
+  h1{margin:0 0 6px;font-size:20px}
+  p.lead{margin:0 0 18px;color:#cbd5e1}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+  .card{background:rgba(255,255,255,0.02);padding:14px;border-radius:10px;border:1px solid rgba(255,255,255,0.03)}
+  .card h3{margin:0 0 8px;font-size:15px}
+  .card p{margin:0 0 12px;color:#cbd5e1;font-size:13px}
+  button, .btn{background:#06b6d4;color:#042027;border:0;padding:10px 12px;border-radius:8px;cursor:pointer;font-weight:600}
+  .small{padding:8px 10px;font-size:13px}
+  input[type="text"]{width:100%;padding:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:#fff}
+  .muted{color:#94a3b8;font-size:13px}
+  .row{display:flex;gap:8px;flex-wrap:wrap}
+  footer{margin-top:16px;color:#9aa7b6;font-size:13px;text-align:center}
+  .copy-ok{color:#10b981;font-weight:700}
+  .bigcount{font-size:22px;font-weight:800;margin-bottom:8px}
+  .share-links a{display:inline-block;margin-right:6px;margin-bottom:6px;padding:8px 10px;border-radius:8px;background:rgba(255,255,255,0.03);color:#fff;text-decoration:none;font-weight:600}
+  .image-preview{width:100%;height:160px;background:linear-gradient(90deg,#0ea5e9,#06b6d4);border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:800;color:#042027}
+  .hint{font-size:12px;color:#9aa7b6}
+</style>
+</head>
+<body>
+  <div class="container" role="main">
+    <h1>Promociona tu Live de TikTok — 10 herramientas legítimas</h1>
+    <p class="lead">No uses bots. Usa estas herramientas para aumentar vistas reales: comparte, recuerda, crea materiales y anima a tu audiencia a invitar a otros.</p>
+
+    <div style="margin-bottom:12px">
+      <label class="muted">Enlace del live o perfil de TikTok (p. ej. https://www.tiktok.com/@tuusuario/live o https://www.tiktok.com/@tuusuario)</label>
+      <input id="ttLink" type="text" placeholder="Pega aquí el enlace del live o tu perfil"/>
+    </div>
+
+    <div class="grid" aria-label="Herramientas">
+
+      <!-- 1. Botón copiar enlace -->
+      <div class="card" id="card-copy">
+        <h3>1. Copiar enlace</h3>
+        <p>Copia rápidamente el enlace de tu live para compartir en chats y grupos.</p>
+        <div class="row">
+          <button class="small" id="copyBtn">Copiar enlace</button>
+          <div id="copyStatus" class="muted" style="align-self:center"></div>
+        </div>
+      </div>
+
+      <!-- 2. Compartir nativo -->
+      <div class="card">
+        <h3>2. Compartir nativo (móvil)</h3>
+        <p>Usa la función de compartir del dispositivo (si está disponible) para enviar el enlace a apps instaladas.</p>
+        <button class="small" id="nativeShare">Compartir</button>
+        <div class="hint" style="margin-top:8px">Funciona mejor en móviles: iOS/Android</div>
+      </div>
+
+      <!-- 3. WhatsApp / Telegram / Twitter / FB -->
+      <div class="card">
+        <h3>3. Compartir en redes y chats</h3>
+        <p>Clic para abrir un mensaje pre-llenado listo para enviar en distintas plataformas.</p>
+        <div class="share-links">
+          <a href="#" id="waShare">WhatsApp</a>
+          <a href="#" id="tgShare">Telegram</a>
+          <a href="#" id="twShare">Twitter</a>
+          <a href="#" id="fbShare">Facebook</a>
+        </div>
+      </div>
+
+      <!-- 4. Generador de evento ICS -->
+      <div class="card">
+        <h3>4. Descargar recordatorio (añadir al calendario)</h3>
+        <p>Genera un archivo .ics para que tus seguidores agreguen la fecha del live a su calendario.</p>
+        <div class="row">
+          <input id="eventTitle" type="text" placeholder="Título del evento (p.ej. Live con Pedro)" />
+          <input id="eventDT" type="text" placeholder="Fecha y hora (YYYY-MM-DD HH:MM) — zona local" />
+          <button class="small" id="icsBtn">Generar .ics</button>
+        </div>
+        <div class="hint">Ejemplo: 2025-11-20 20:00</div>
+      </div>
+
+      <!-- 5. RSVP (lista local) -->
+      <div class="card">
+        <h3>5. RSVP / Recordatorios (lista local)</h3>
+        <p>Permite que la gente se registre para recordatorios — la lista queda en su navegador o la puedes exportar.</p>
+        <div class="row">
+          <input id="rsvpName" type="text" placeholder="Tu nombre" />
+          <button class="small" id="rsvpBtn">Me apunto</button>
+        </div>
+        <div id="rsvpList" class="muted" style="margin-top:8px"></div>
+      </div>
+
+      <!-- 6. Plantillas para mensajes -->
+      <div class="card">
+        <h3>6. Plantillas para compartir</h3>
+        <p>Mensajes listos para copiar: úsalos en grupos o historias.</p>
+        <select id="templateSelect" style="width:100%;padding:8px;border-radius:8px;background:transparent;color:#fff;margin-bottom:8px">
+          <option value="¡No te lo pierdas! Voy a hacer un live: {link} - ¡te espero!">Invitación casual</option>
+          <option value="🚨 Live hoy a las {hora}! Ven a participar: {link}">Recordatorio urgente</option>
+          <option value="Sorteos y sorpresas en mi próximo live: {link}">Promoción con incentivo</option>
+        </select>
+        <div class="row">
+          <button class="small" id="fillTemplate">Generar mensaje</button>
+          <button class="small" id="copyTemplate">Copiar mensaje</button>
+        </div>
+        <div id="templateOut" class="muted" style="margin-top:8px"></div>
+      </div>
+
+      <!-- 7. Imagen promocional -->
+      <div class="card">
+        <h3>7. Crear imagen promocional (story)</h3>
+        <p>Genera una imagen simple con el título y el enlace para compartir en historias.</p>
+        <div class="image-preview" id="promoCanvas">PROMO PREVIEW</div>
+        <div style="margin-top:8px" class="row">
+          <input id="promoText" type="text" placeholder="Texto para imagen (p.ej. Live hoy 8PM)" />
+          <button class="small" id="makeImg">Generar</button>
+          <button class="small" id="downloadImg">Descargar</button>
+        </div>
+      </div>
+
+      <!-- 8. Enlace para abrir TikTok (móvil) -->
+      <div class="card">
+        <h3>8. Abrir en TikTok (móvil)</h3>
+        <p>Botón que intenta abrir directamente la app TikTok o abre la web si no está instalada.</p>
+        <button class="small" id="openTikBtn">Abrir TikTok</button>
+        <div class="hint">Funciona mejor desde dispositivo móvil.</div>
+      </div>
+
+      <!-- 9. Contador regresivo -->
+      <div class="card">
+        <h3>9. Contador regresivo</h3>
+        <p>Muestra el tiempo restante hasta la fecha/hora del live para crear urgencia.</p>
+        <input id="countDT" type="text" placeholder="Fecha y hora (YYYY-MM-DD HH:MM)" />
+        <div class="bigcount" id="countdown">— : — : — : —</div>
+        <button class="small" id="startCount">Iniciar contador</button>
+      </div>
+
+      <!-- 10. Checklist / Tips para promocionar -->
+      <div class="card">
+        <h3>10. Checklist + Copy para colaboradores</h3>
+        <p>Lista de acciones concretas para que tus moderadores y amigos promuevan el live.</p>
+        <ul style="margin:8px 0 0;color:#cbd5e1">
+          <li>1. Compartir enlace 30 min antes en grupos.</li>
+          <li>2. Publicar story con imagen y sticker de cuenta.</li>
+          <li>3. Invitar a 5 amistades clave personalmente.</li>
+          <li>4. Usar un incentivo (sorteo/descarga exclusiva)</li>
+        </ul>
+        <div style="margin-top:10px" class="row">
+          <button class="small" id="copyChecklist">Copiar checklist</button>
+        </div>
+      </div>
+
+    </div>
+
+    <footer>
+      Consejos: programa tu live en hora punta, anuncia con antelación, colabora con otros creadores y ofrece incentivos reales (sorteos, Q&A, contenido exclusivo). Nunca uses bots.
+    </footer>
+  </div>
+
+<script>
+  // utilidades
+  const ttLink = () => document.getElementById('ttLink').value.trim();
+
+  // 1) copiar enlace
+  document.getElementById('copyBtn').addEventListener('click', async ()=>{
+    const link = ttLink();
+    if(!link){document.getElementById('copyStatus').textContent='Pega primero el enlace.'; return;}
+    try{
+      await navigator.clipboard.writeText(link);
+      document.getElementById('copyStatus').innerHTML='<span class="copy-ok">Enlace copiado ✅</span>';
+    }catch(e){
+      document.getElementById('copyStatus').textContent='No se pudo copiar, usa Ctrl/Cmd+C';
+    }
+  });
+
+  // 2) compartir nativo
+  document.getElementById('nativeShare').addEventListener('click', async ()=>{
+    const link = ttLink();
+    if(!link){alert('Pega el enlace primero.');return;}
+    if(navigator.share){
+      navigator.share({title:'Mira mi Live en TikTok', text:'Únete a mi live', url:link}).catch(()=>{});
+    }else{
+      alert('Tu dispositivo no soporta compartir nativo. Usa los botones de compartir.');
+    }
+  });
+
+  // 3) redes
+  function urlEncode(s){ return encodeURIComponent(s); }
+  document.getElementById('waShare').href='#';
+  document.getElementById('tgShare').href='#';
+  document.getElementById('twShare').href='#';
+  document.getElementById('fbShare').href='#';
+  const updateShareLinks = ()=>{
+    const link = ttLink() || window.location.href;
+    const text = 'Únete a mi live: ' + link;
+    document.getElementById('waShare').href = 'https://wa.me/?text=' + urlEncode(text);
+    document.getElementById('tgShare').href = 'https://t.me/share/url?url=' + urlEncode(link) + '&text=' + urlEncode('Únete a mi live');
+    document.getElementById('twShare').href = 'https://twitter.com/intent/tweet?text=' + urlEncode(text);
+    document.getElementById('fbShare').href = 'https://www.facebook.com/sharer/sharer.php?u=' + urlEncode(link);
+  };
+  document.getElementById('ttLink').addEventListener('input', updateShareLinks);
+
+  // 4) generar ICS
+  function downloadFile(filename, content){
+    const blob = new Blob([content], {type:'text/plain;charset=utf-8'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url; a.download = filename;
+    document.body.appendChild(a); a.click(); a.remove();
+    URL.revokeObjectURL(url);
+  }
+  document.getElementById('icsBtn').addEventListener('click', ()=>{
+    const title = document.getElementById('eventTitle').value || 'Live de TikTok';
+    const dt = document.getElementById('eventDT').value;
+    if(!dt){ alert('Introduce fecha y hora (YYYY-MM-DD HH:MM)'); return;}
+    // Simple parsing (local)
+    const parts = dt.split(/[\sT]/);
+    const date = parts[0]; const time = parts[1] || '00:00';
+    const iso = date + 'T' + time.replace(':','') + '00';
+    const uid = 'live-' + Date.now();
+    const link = ttLink() || '';
+    const ics = [
+      'BEGIN:VCALENDAR',
+      'VERSION:2.0',
+      'BEGIN:VEVENT',
+      'UID:'+uid,
+      'DTSTAMP:'+new Date().toISOString().replace(/[-:]/g,'').split('.')[0]+'Z',
+      'DTSTART:'+iso,
+      'SUMMARY:'+title,
+      'DESCRIPTION:Enlace: '+link,
+      'END:VEVENT',
+      'END:VCALENDAR'
+    ].join('\\r\\n');
+    downloadFile('live.ics', ics);
+  });
+
+  // 5) RSVP local
+  const rsvpKey = 'promo_rsvp';
+  function loadRSVP(){ try{ return JSON.parse(localStorage.getItem(rsvpKey) || '[]'); }catch(e){return []}}
+  function saveRSVP(list){ localStorage.setItem(rsvpKey, JSON.stringify(list)); }
+  function renderRSVP(){ const l=loadRSVP(); document.getElementById('rsvpList').textContent = l.length?('Registrados: '+ l.join(', ')):'Nadie registrado aún'; }
+  document.getElementById('rsvpBtn').addEventListener('click', ()=>{
+    const name = document.getElementById('rsvpName').value.trim() || 'Anon';
+    const arr = loadRSVP(); arr.push(name); saveRSVP(arr); renderRSVP(); document.getElementById('rsvpName').value=''; alert('¡Gracias! quedaste registrado.');
+  });
+  renderRSVP();
+
+  // 6) plantillas
+  document.getElementById('fillTemplate').addEventListener('click', ()=>{
+    const tmpl = document.getElementById('templateSelect').value;
+    const link = ttLink() || '{link}';
+    const hora = 'hora';
+    const out = tmpl.replace('{link}', link).replace('{hora}', hora);
+    document.getElementById('templateOut').textContent = out;
+  });
+  document.getElementById('copyTemplate').addEventListener('click', async ()=>{
+    const txt = document.getElementById('templateOut').textContent;
+    if(!txt){ alert('Genera primero el mensaje'); return; }
+    try{ await navigator.clipboard.writeText(txt); alert('Mensaje copiado'); }catch(e){ alert('No se pudo copiar'); }
+  });
+
+  // 7) crear imagen (canvas)
+  let lastDataUrl = null;
+  document.getElementById('makeImg').addEventListener('click', ()=>{
+    const text = document.getElementById('promoText').value || 'Mi Live en TikTok';
+    const canvas = document.createElement('canvas'); canvas.width = 1080; canvas.height = 1920;
+    const ctx = canvas.getContext('2d');
+    // fondo degrade
+    const g = ctx.createLinearGradient(0,0,canvas.width,canvas.height); g.addColorStop(0,'#06b6d4'); g.addColorStop(1,'#0ea5e9');
+    ctx.fillStyle = g; ctx.fillRect(0,0,canvas.width,canvas.height);
+    // texto
+    ctx.fillStyle = '#042027'; ctx.textAlign='center';
+    ctx.font = 'bold 120px Arial'; ctx.fillText(text, canvas.width/2, canvas.height/2);
+    // small link
+    ctx.font = 'bold 60px Arial'; ctx.fillText(ttLink() || 'tiktok.com/@tuusuario', canvas.width/2, canvas.height/2 + 140);
+    lastDataUrl = canvas.toDataURL('image/png');
+    document.getElementById('promoCanvas').style.backgroundImage = 'url('+lastDataUrl+')';
+    document.getElementById('promoCanvas').textContent = '';
+  });
+  document.getElementById('downloadImg').addEventListener('click', ()=>{
+    if(!lastDataUrl){ alert('Genera la imagen primero'); return;}
+    const a = document.createElement('a'); a.href = lastDataUrl; a.download = 'promo.png'; document.body.appendChild(a); a.click(); a.remove();
+  });
+
+  // 8) abrir TikTok
+  document.getElementById('openTikBtn').addEventListener('click', ()=>{
+    const link = ttLink() || '';
+    if(!link){ alert('Pega el enlace al perfil o live'); return; }
+    // Try app deep link (Android/iOS may vary) then fallback
+    const scheme = link.includes('tiktok.com') ? link.replace('https://','intent://') : link;
+    // open in new tab/window
+    window.open(link, '_blank');
+  });
+
+  // 9) contador
+  let countInterval = null;
+  document.getElementById('startCount').addEventListener('click', ()=>{
+    const raw = document.getElementById('countDT').value;
+    if(!raw){ alert('Introduce fecha y hora (YYYY-MM-DD HH:MM)'); return;}
+    const target = new Date(raw.replace(' ','T'));
+    if(isNaN(target)) { alert('Formato inválido'); return; }
+    if(countInterval) clearInterval(countInterval);
+    countInterval = setInterval(()=>{
+      const now = new Date();
+      let diff = target - now;
+      if(diff <= 0){ document.getElementById('countdown').textContent = 'EN VIVO'; clearInterval(countInterval); return; }
+      const days = Math.floor(diff / (1000*60*60*24));
+      diff -= days*(1000*60*60*24);
+      const hrs = Math.floor(diff / (1000*60*60));
+      diff -= hrs*(1000*60*60);
+      const mins = Math.floor(diff / (1000*60));
+      diff -= mins*(1000*60);
+      const secs = Math.floor(diff/1000);
+      document.getElementById('countdown').textContent = `${days}d : ${String(hrs).padStart(2,'0')}h : ${String(mins).padStart(2,'0')}m : ${String(secs).padStart(2,'0')}s`;
+    }, 1000);
+  });
+
+  // 10) checklist copy
+  document.getElementById('copyChecklist').addEventListener('click', async ()=>{
+    const text = 'Checklist para promocionar el live:\\n1. Compartir enlace 30 min antes.\\n2. Publicar story con imagen.\\n3. Invitar 5 personas clave.\\n4. Anunciar incentivo (sorteo).';
+    try{ await navigator.clipboard.writeText(text); alert('Checklist copiada'); }catch(e){ alert('No se pudo copiar'); }
+  });
+
+  // init
+  updateShareLinks();
+</script>
+</body>
+</html>
